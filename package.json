@@ -1,0 +1,50 @@
+{
+  "name": "cervify-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.Cervifyapp",
+    "productName": "Cervify",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "frontend_dist/**/*",
+      "loading.html",
+      "main.js",
+      "public/*"
+    ],
+    "extraFiles": [
+      {
+        "from": "../../backend/dist/Cervify_backend/",
+        "to": "backend",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "icon": "public/icon.ico"
+    },
+    "linux": {
+      "icon": "public/icon.png"
+    },
+    "mac": {
+      "icon": "public/icon.icns"
+    }
+  },
+  "keywords": ["cervify","CAD","AI","frottis","pap","smear","cancer","cervical"],
+  "author": "Wassim Lourimi and Yasmin Chlif",
+  "license": "ISC",
+  "description": "CAD system that uses AI for early detection and diagnoss of cervical cancer",
+  "devDependencies": {
+    "electron": "^36.3.2",
+    "electron-builder": "^26.0.12"
+  }
+}
